@@ -26,7 +26,7 @@ const GraciasPage = () => {
         </p>
         
         <p className="text-md text-gray-400 mb-8">
-          Si deseas agilizar el proceso, escríbenos directamente por WhatsApp al <a href="https://wa.me/17754307772" className="text-key-green hover:underline">+1 775 430 7772</a>
+          Si deseas agilizar el proceso, escríbenos directamente por WhatsApp al <a href="https://wa.me/51912407529" className="text-key-green hover:underline">+51 912 407 529</a>
         </p>
         
         <Link to="/" className="btn-primary">

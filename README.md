@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+# Homie
 
-## Project info
+> Premium short-term rental management for properties in Lima, Peru.
 
-**URL**: https://lovable.dev/projects/e7d3b922-35f2-40c1-910e-22d61c738f00
+Landing page for **Homie**, a service that handles end-to-end management of short-term rental properties (Airbnb-style) in Lima Top districts. Property owners get a turnkey solution and a monthly performance report.
 
-## How can I edit this code?
+🌐 **Live site:** [homiebnb.com](https://homiebnb.com)
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e7d3b922-35f2-40c1-910e-22d61c738f00) and start prompting.
+- **Framework:** [Vite](https://vitejs.dev/) + [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+- **Animations:** Framer Motion
+- **Analytics:** Google Analytics 4
+- **Hosting:** Hostinger (shared hosting + Apache `.htaccess` SPA routing)
+- **Built with:** [Lovable](https://lovable.dev/)
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Responsive landing page optimized for mobile-first traffic
+- Lead capture flow with WhatsApp integration
+- Sections: Advantages, Process, Testimonials, FAQ, Contact
+- SEO-ready with semantic HTML and meta tags
+- Google Analytics event tracking
+- SPA routing with client-side navigation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Node.js 20+ and npm (or [Bun](https://bun.sh/))
+- Git
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Installation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Clone the repository
+git clone https://github.com/javocraq/Homie.git
+cd Homie
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The dev server will start at `http://localhost:5173`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The production-ready files will be generated in the `dist/` directory.
 
-## What technologies are used for this project?
+### Preview Production Build
 
-This project is built with:
+```bash
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/e7d3b922-35f2-40c1-910e-22d61c738f00) and click on Share -> Publish.
+This project is deployed manually to Hostinger shared hosting. The build output (`dist/`) is uploaded to `public_html/` via the Hostinger File Manager or FTP.
 
-## Can I connect a custom domain to my Lovable project?
+A custom `.htaccess` file is required at the root of `public_html/` to enable SPA routing:
 
-Yes, you can!
+```apache
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Project Structure
+Homie/
+├── public/              # Static assets (images, favicons, lovable-uploads)
+├── src/
+│   ├── components/      # React components (UI + sections)
+│   ├── pages/           # Route-level page components
+│   ├── lib/             # Utilities and helpers
+│   └── main.tsx         # App entry point
+├── index.html           # HTML template
+├── tailwind.config.ts   # Tailwind configuration
+├── vite.config.ts       # Vite configuration
+└── package.json
+
+---
+
+## Built By
+
+Developed by **[Javier Flores Macías](https://github.com/javocraq)** ([@medicen_javo](https://www.youtube.com/@medicen_javo)), founder of [Núcleo Lab](https://nucleo.la) — an AI automation agency based in Lima, Peru.
+
+**Client / Product Owner:** [Fabrizio Sil](https://github.com/FabrizioSil)
+
+---
+
+## License
+
+This project is private and proprietary. All rights reserved © Homie.

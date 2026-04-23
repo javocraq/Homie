@@ -25,6 +25,7 @@ export default {
 			},
 			colors: {
 				'key-green': '#68B483',
+				'key-green-dark': '#0E3B2C',
 				'dark-gray': '#1E1E1E',
 				'medium-gray': '#4A4A4A',
 				'light-gray': '#7A7A7A',
@@ -83,12 +84,17 @@ export default {
 					'50%': {
 						boxShadow: '0 0 12px 4px rgba(104, 180, 131, 0.6)'
 					}
+				},
+				marquee: {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'glow-pulse': 'glow-pulse 3s infinite'
+				'glow-pulse': 'glow-pulse 3s infinite',
+				marquee: 'marquee 40s linear infinite'
 			},
 			backgroundImage: {
 				'radial-gradient': 'radial-gradient(circle, #4A4A4A, #1E1E1E)',

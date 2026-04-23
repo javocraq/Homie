@@ -5,7 +5,7 @@ export const validateForm = (formData: CustomFormData) => {
   const errors: {[key: string]: string} = {};
   
   if (!formData.aceptaTerminos) {
-    errors.aceptaTerminos = "Debes aceptar los términos y condiciones";
+    errors.aceptaTerminos = "form.error.terminos";
   }
   
   return { errors, isValid: Object.keys(errors).length === 0 };

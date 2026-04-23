@@ -88,7 +88,7 @@ RewriteRule . /index.html [L]
 
 ## Project Structure
 Homie/
-├── public/              # Static assets (images, favicons, lovable-uploads)
+├── public/              # Static assets (images, favicons, images/)
 ├── src/
 │   ├── components/      # React components (UI + sections)
 │   ├── pages/           # Route-level page components

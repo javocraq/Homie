@@ -1,34 +1,68 @@
 
 import React from 'react';
-import { Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext';
+import { useContactModal } from './ContactModalProvider';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
+  const { open: openContactModal } = useContactModal();
   return <footer className="py-12 bg-dark-gray border-t border-key-green border-opacity-10">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <img src="/lovable-uploads/0e97e210-63de-4b39-8d4c-a0a7b6b6e724.png" alt="Homie Logo" className="h-14 md:h-16 object-contain" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+          <div>
+            <img src="/images/brand/homie-logo.png" alt="Homie — Administración Airbnb Perú" className="h-14 md:h-16 object-contain mb-4" loading="lazy" />
+            <p className="text-sm text-gray-400">{t('footer.tagline')}</p>
           </div>
-          
-          <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 text-gray-300">
-            <a href="#ventajas" className="hover:text-key-green transition-colors">Ventajas</a>
-            <a href="#proceso" className="hover:text-key-green transition-colors">Proceso</a>
-            <a href="#testimonios" className="hover:text-key-green transition-colors">Testimonios</a>
-            <a href="#faq" className="hover:text-key-green transition-colors">FAQ</a>
-            <a href="#contacto" className="hover:text-key-green transition-colors">Contacto</a>
-          </div>
+
+          <nav aria-label={t('footer.nav.explora')} className="text-gray-300">
+            <h3 className="text-white font-semibold mb-3">{t('footer.nav.explora')}</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="/#ventajas" className="hover:text-key-green">{t('footer.nav.ventajas')}</a></li>
+              <li><a href="/#proceso" className="hover:text-key-green">{t('footer.nav.proceso')}</a></li>
+              <li><a href="/#faq" className="hover:text-key-green">{t('footer.nav.faq')}</a></li>
+              <li><Link to="/sobre-nosotros" className="hover:text-key-green">{t('footer.nav.sobre')}</Link></li>
+              <li><Link to="/blog" className="hover:text-key-green">{t('footer.nav.blog')}</Link></li>
+            </ul>
+          </nav>
+
+          <nav aria-label={t('footer.nav.distritos')} className="text-gray-300">
+            <h3 className="text-white font-semibold mb-3">{t('footer.nav.distritos')}</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/administracion-airbnb-miraflores" className="hover:text-key-green">Miraflores</Link></li>
+              <li><Link to="/administracion-airbnb-barranco" className="hover:text-key-green">Barranco</Link></li>
+              <li><Link to="/administracion-airbnb-san-isidro" className="hover:text-key-green">San Isidro</Link></li>
+              <li><Link to="/administracion-airbnb-magdalena-del-mar" className="hover:text-key-green">Magdalena del Mar</Link></li>
+            </ul>
+          </nav>
+
+          <nav aria-label={t('footer.nav.legal')} className="text-gray-300">
+            <h3 className="text-white font-semibold mb-3">{t('footer.nav.legal')}</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/privacidad" className="hover:text-key-green">{t('footer.nav.privacidad')}</Link></li>
+              <li><Link to="/terminos" className="hover:text-key-green">{t('footer.nav.terminos')}</Link></li>
+              <li>
+                <button
+                  type="button"
+                  onClick={openContactModal}
+                  className="hover:text-key-green text-left transition-colors"
+                >
+                  {t('footer.nav.contacto')}
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-gray-800 text-center md:flex md:justify-between md:items-center">
           <p className="text-sm text-gray-400 mb-4 md:mb-0">
-            &copy; {currentYear} Homie Perú. Todos los derechos reservados.
+            {t('footer.rights', { year: currentYear })}
           </p>
-          
+
           <div className="flex justify-center space-x-6">
             <a href="https://www.tiktok.com/@homiebnb" className="text-gray-400 hover:text-key-green" target="_blank" rel="noopener noreferrer">
               <span className="sr-only">TikTok</span>
-              {/* Custom TikTok SVG icon since it's not available in lucide-react */}
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298.006.595.043.88.11V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.83a6.34 6.34 0 0 0 10.86-4.43v-6.9A8.16 8.16 0 0 0 22 9.5v-3.4a4.85 4.85 0 0 1-2.41.59z"/>
               </svg>

@@ -25,6 +25,16 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 143 39% 48%;
     --radius: 1rem;
+    --navbar-height: 80px;
+  }
+
+  section[id],
+  [id="ventajas"],
+  [id="proceso"],
+  [id="testimonios"],
+  [id="faq"],
+  [id="contacto"] {
+    scroll-margin-top: calc(var(--navbar-height, 80px) + 16px) !important;
   }
 
   body {
@@ -109,14 +119,121 @@
     100% { width: 100%; }
   }
 
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @keyframes dropdown-slide {
-    0% { 
+    0% {
       opacity: 0;
       transform: translateY(-5px);
     }
-    100% { 
+    100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes modalIn {
+    0% {
+      opacity: 0;
+      transform: translateY(16px) scale(0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes backdropIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* ContactModal success state ─────────────────────────────────────── */
+  @keyframes successPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes successPulse {
+    0% {
+      opacity: 0.55;
+      transform: scale(0.85);
+    }
+    70% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+  }
+
+  @keyframes progressFill {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  /* ContactModal processing state ──────────────────────────────────── */
+  @keyframes processingSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes processingFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+    }
+  }
+
+  @keyframes processingStepIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes processingDotPulse {
+    0%, 100% {
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 1;
     }
   }
 

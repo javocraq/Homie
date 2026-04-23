@@ -1,35 +1,20 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
+import type { TranslationKey } from '../i18n/translations';
 
-const faqList = [
-  {
-    question: "¿Cuánto puedo ganar con mi propiedad?",
-    answer: "Los ingresos dependen de factores como ubicación, tamaño y características de tu propiedad. En promedio, nuestros propietarios obtienen entre 30-45% más ingresos que con alquileres tradicionales. Solicita una proyección gratuita para obtener un estimado personalizado."
-  },
-  {
-    question: "¿Cómo funciona el proceso de pago?",
-    answer: "Realizamos transferencias mensuales a tu cuenta bancaria, generalmente entre el 10-15 de cada mes. Deducimos nuestra comisión y los gastos operativos (limpieza, suministros, etc.), y enviamos un informe detallado con todas las transacciones."
-  },
-  {
-    question: "¿Puedo usar mi propiedad ocasionalmente?",
-    answer: "Sí, puedes bloquear fechas para uso personal a través de nuestro calendario. Recomendamos avisar con al menos 30 días de anticipación para evitar conflictos con reservas ya confirmadas."
-  },
-  {
-    question: "¿Qué sucede si hay daños en mi propiedad?",
-    answer: "Todos los huéspedes dejan un depósito de seguridad. Además, contamos con un seguro especial para alquileres temporales que cubre daños mayores. Nuestro equipo realiza inspecciones después de cada estadía para identificar cualquier problema."
-  },
-  {
-    question: "¿Cuál es el plazo mínimo de contrato?",
-    answer: "Trabajamos con un contrato inicial de 6 meses, renovable automáticamente. Esto nos permite implementar estrategias efectivas y demostrar resultados. Si deseas terminar la relación, solicitamos un aviso con 30 días de anticipación."
-  },
-  {
-    question: "¿Qué necesito proporcionar para mi propiedad?",
-    answer: "Tu propiedad debe estar equipada con muebles básicos, electrodomésticos y servicios (agua, luz, internet). Nosotros nos encargamos de la decoración adicional, ropa de cama, toallas y artículos de tocador para optimizar la experiencia del huésped y las fotos del listado."
-  }
+const faqList: Array<{ qKey: TranslationKey; aKey: TranslationKey }> = [
+  { qKey: 'faq.q1.q', aKey: 'faq.q1.a' },
+  { qKey: 'faq.q2.q', aKey: 'faq.q2.a' },
+  { qKey: 'faq.q3.q', aKey: 'faq.q3.a' },
+  { qKey: 'faq.q4.q', aKey: 'faq.q4.a' },
+  { qKey: 'faq.q5.q', aKey: 'faq.q5.a' },
+  { qKey: 'faq.q6.q', aKey: 'faq.q6.a' },
 ];
 
 const FAQ = () => {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   
   const toggleFAQ = (index: number) => {
@@ -37,37 +22,39 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-24 bg-dark-gray anchor-section">
+    <section id="faq" className="py-20 md:py-24 bg-[#FFFFFF] anchor-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white">Preguntas frecuentes</h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            Todo lo que necesitas saber sobre nuestro servicio de administración para Airbnb.
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-dark-gray">{t('faq.heading')}</h2>
+          <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
+            {t('faq.subtitle')}
           </p>
         </div>
-        
+
         <div className="max-w-3xl mx-auto">
           {faqList.map((faq, index) => (
             <div key={index} className="mb-4">
-              <button 
+              <button
                 onClick={() => toggleFAQ(index)}
-                className={`w-full text-left p-5 rounded-lg flex justify-between items-center transition-colors ${
-                  activeIndex === index ? 'bg-key-green bg-opacity-10' : 'bg-dark-gray bg-opacity-40 hover:bg-opacity-60'
+                className={`w-full text-left p-5 rounded-lg flex justify-between items-center transition-colors border ${
+                  activeIndex === index
+                    ? 'bg-key-green/10 border-key-green/30'
+                    : 'bg-[#F7F7F7] border-dark-gray/[0.08] hover:bg-[#F0F0F0]'
                 }`}
               >
-                <span className="font-medium text-white">{faq.question}</span>
+                <span className="font-medium text-dark-gray">{t(faq.qKey)}</span>
                 {activeIndex === index ? (
                   <ChevronUp className="text-key-green" size={20} />
                 ) : (
                   <ChevronDown className="text-key-green" size={20} />
                 )}
               </button>
-              
+
               <div className={`overflow-hidden transition-all duration-300 ${
                 activeIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               }`}>
-                <div className="p-5 text-gray-300 bg-dark-gray bg-opacity-20 rounded-b-lg">
-                  {faq.answer}
+                <div className="p-5 text-dark-gray/75 bg-[#F7F7F7] rounded-b-lg">
+                  {t(faq.aKey)}
                 </div>
               </div>
             </div>

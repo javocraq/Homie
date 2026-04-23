@@ -1,40 +1,19 @@
 
 import React from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
+import type { TranslationKey } from '../i18n/translations';
 
-const advantagesList = [
-  {
-    icon: "chart", 
-    title: "Mayor rentabilidad",
-    description: "+30% de ingresos vs rentas tradicionales con estrategias de precio dinámicas"
-  },
-  {
-    icon: "calendar",
-    title: "Alta ocupación",
-    description: "≥75% de ocupación gracias a optimización de listings y posicionamiento"
-  },
-  {
-    icon: "star", 
-    title: "Servicio completo",
-    description: "Fotos profesionales, decoración, limpieza profunda, atención al huesped 24/7 y filtro de huespedes"
-  },
-  {
-    icon: "message", 
-    title: "Atención 24/7",
-    description: "Respuesta inmediata a huéspedes y propietarios en cualquier momento"
-  },
-  {
-    icon: "report", 
-    title: "Reportes detallados",
-    description: "Informes mensuales con ingresos, gastos y métricas de rendimiento"
-  },
-  {
-    icon: "shield", 
-    title: "Tranquilidad total",
-    description: "Tu propiedad protegida con seguros especiales para alquileres temporales"
-  },
+const advantagesList: Array<{ icon: string; titleKey: TranslationKey; descKey: TranslationKey }> = [
+  { icon: 'chart', titleKey: 'advantages.chart.title', descKey: 'advantages.chart.desc' },
+  { icon: 'calendar', titleKey: 'advantages.calendar.title', descKey: 'advantages.calendar.desc' },
+  { icon: 'star', titleKey: 'advantages.star.title', descKey: 'advantages.star.desc' },
+  { icon: 'message', titleKey: 'advantages.message.title', descKey: 'advantages.message.desc' },
+  { icon: 'report', titleKey: 'advantages.report.title', descKey: 'advantages.report.desc' },
+  { icon: 'shield', titleKey: 'advantages.shield.title', descKey: 'advantages.shield.desc' },
 ];
 
 const Advantages = () => {
+  const { t } = useLanguage();
   const renderIcon = (icon: string) => {
     return (
       <div className="w-[72px] h-[72px] rounded-full bg-key-green bg-opacity-20 flex items-center justify-center mb-4">
@@ -78,9 +57,9 @@ const Advantages = () => {
     <section id="ventajas" className="py-20 md:py-24 bg-dark-gray anchor-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Por qué Homie</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">{t('advantages.heading')}</h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            Maximiza tus ingresos mientras nosotros nos ocupamos de todo. Administración integral para propietarios que valoran su tiempo y rentabilidad.
+            {t('advantages.subtitle')}
           </p>
         </div>
         
@@ -91,8 +70,8 @@ const Advantages = () => {
               className="bg-medium-gray bg-opacity-10 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px] hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)]"
             >
               {renderIcon(advantage.icon)}
-              <h3 className="text-xl font-semibold mb-2 text-white">{advantage.title}</h3>
-              <p className="text-gray-300">{advantage.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-white">{t(advantage.titleKey)}</h3>
+              <p className="text-gray-300">{t(advantage.descKey)}</p>
             </div>
           ))}
         </div>

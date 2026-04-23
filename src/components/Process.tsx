@@ -1,30 +1,17 @@
 
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
+import type { TranslationKey } from '../i18n/translations';
 
-const processList = [
-  {
-    number: "01",
-    title: "Evaluación inicial",
-    description: "Analizamos tu propiedad y ubicación para estimar ingresos potenciales."
-  },
-  {
-    number: "02",
-    title: "Preparación y optimización",
-    description: "Producción fotográfica, diseño interior y creación de perfiles atractivos."
-  },
-  {
-    number: "03",
-    title: "Gestión completa",
-    description: "Nos encargamos de reservas, comunicación, limpieza y mantenimiento."
-  },
-  {
-    number: "04",
-    title: "Reportes mensuales",
-    description: "Recibe informes detallados de ingresos, gastos y próximas reservas."
-  }
+const processList: Array<{ number: string; titleKey: TranslationKey; descKey: TranslationKey }> = [
+  { number: '01', titleKey: 'process.01.title', descKey: 'process.01.desc' },
+  { number: '02', titleKey: 'process.02.title', descKey: 'process.02.desc' },
+  { number: '03', titleKey: 'process.03.title', descKey: 'process.03.desc' },
+  { number: '04', titleKey: 'process.04.title', descKey: 'process.04.desc' },
 ];
 
 const Process = () => {
+  const { t } = useLanguage();
   const [lineWidth, setLineWidth] = useState(0);
 
   useEffect(() => {
@@ -52,9 +39,9 @@ const Process = () => {
     <section id="proceso" className="py-20 md:py-24 bg-white anchor-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-dark-gray">Nuestro proceso</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-dark-gray">{t('process.heading')}</h2>
           <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
-            Un servicio simplificado y eficiente para que tú solo te ocupes de recibir tus ingresos.
+            {t('process.subtitle')}
           </p>
         </div>
         
@@ -74,8 +61,8 @@ const Process = () => {
                   <div className="w-12 h-12 rounded-full bg-key-green flex items-center justify-center mb-4 text-dark-gray font-semibold relative z-10">
                     {process.number}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-dark-gray">{process.title}</h3>
-                  <p className="text-medium-gray">{process.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-dark-gray">{t(process.titleKey)}</h3>
+                  <p className="text-medium-gray">{t(process.descKey)}</p>
                 </div>
               </div>
             ))}

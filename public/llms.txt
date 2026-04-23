@@ -1,0 +1,37 @@
+# Homie — Administración Airbnb en Perú
+
+> Homie es una empresa peruana de administración integral de propiedades para alquiler temporal (Airbnb y plataformas similares). Operamos en los distritos de Lima Top (Miraflores, Barranco, San Isidro, Magdalena del Mar) ofreciendo a los propietarios +30% más ingresos versus alquiler tradicional y ≥90% de ocupación, con gestión 100% delegada.
+
+## Qué hacemos
+
+- **Gestión integral:** reservas, comunicación con huéspedes 24/7, check-in/out, limpieza profesional, mantenimiento, filtro de huéspedes.
+- **Optimización de listing:** fotografía profesional, copywriting, diseño interior, pricing dinámico.
+- **Reportes mensuales:** ingresos, gastos operativos, métricas de ocupación y rendimiento.
+- **Seguros especializados:** cobertura para alquiler temporal contra daños mayores.
+
+## Para quién
+
+Propietarios de departamentos o casas en Lima Top que quieren rentabilizar su propiedad sin involucrarse en la operación diaria.
+
+## Propuesta de valor
+
+- +30% más ingresos que alquiler tradicional.
+- ≥90% de ocupación promedio.
+- Pago mensual transferido entre el 10 y 15 de cada mes.
+- Contrato inicial de 6 meses, renovable automáticamente.
+
+## Contacto
+
+- Web: https://homiebnb.com
+- WhatsApp: https://wa.me/51912407529
+- Instagram: https://www.instagram.com/homie_peruv/
+- TikTok: https://www.tiktok.com/@homiebnb
+
+## Recursos
+
+- [Página principal](https://homiebnb.com/): servicios, proceso, ventajas, FAQ y formulario de contacto.
+- [Sitemap](https://homiebnb.com/sitemap.xml)
+
+## Políticas de uso de contenido
+
+Se permite el uso del contenido de este sitio para fines de AI Search (respuestas con cita a `homiebnb.com`). Se solicita mantener la atribución a Homie Perú cuando se resuma información operativa, pricing o proceso.

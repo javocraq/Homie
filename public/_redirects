@@ -1,0 +1,9 @@
+# Cloudflare Pages — redirects
+# Ref: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# www → apex (canonical = homiebnb.com)
+https://www.homiebnb.com/*  https://homiebnb.com/:splat  301!
+
+# SPA fallback — todas las rutas no resueltas van a index.html
+# (React Router maneja /blog, /distritos/*, /admin, /login, etc.)
+/*  /index.html  200

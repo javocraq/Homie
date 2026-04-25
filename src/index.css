@@ -1,0 +1,249 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 143 39% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 143 39% 48%;
+    --radius: 1rem;
+    --navbar-height: 80px;
+  }
+
+  section[id],
+  [id="ventajas"],
+  [id="proceso"],
+  [id="testimonios"],
+  [id="faq"],
+  [id="contacto"] {
+    scroll-margin-top: calc(var(--navbar-height, 80px) + 16px) !important;
+  }
+
+  body {
+    @apply bg-dark-gray text-white font-inter antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-semibold;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-gray;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-key-green rounded-full;
+  }
+}
+
+@layer components {
+  .glow-effect {
+    @apply transition-all duration-300;
+  }
+
+  .glow-effect:hover {
+    @apply shadow-[0_0_15px_rgba(104,180,131,0.6)];
+  }
+
+  .btn-primary {
+    @apply bg-key-green text-white rounded-full px-6 py-3 font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(104,180,131,0.6)] focus:outline-none focus:ring-2 focus:ring-key-green focus:ring-opacity-50;
+  }
+
+  .anchor-section {
+    @apply scroll-mt-24;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-transparent border-2 rounded-lg focus:outline-none transition-all duration-300;
+    border-color: #FDFDFD;
+  }
+
+  /* Custom styling for select dropdowns */
+  select.input-field {
+    @apply appearance-none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+
+  /* Smooth animation for dropdown options */
+  select.input-field option {
+    @apply transition-all duration-150 ease-out;
+  }
+
+  .input-field:focus {
+    @apply shadow-[0_0_10px_rgba(104,180,131,0.4)];
+    border-color: #68B483;
+  }
+
+  .input-field.filled {
+    border-color: #68B483;
+    @apply shadow-[0_0_5px_rgba(104,180,131,0.3)];
+  }
+
+  .select-option-muted {
+    color: rgba(156, 163, 175, 0.5);
+  }
+
+  .grow-line {
+    @apply transition-all duration-1000 ease-out;
+  }
+
+  @keyframes grow-on-scroll {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes dropdown-slide {
+    0% {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes modalIn {
+    0% {
+      opacity: 0;
+      transform: translateY(16px) scale(0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes backdropIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* ContactModal success state ─────────────────────────────────────── */
+  @keyframes successPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes successPulse {
+    0% {
+      opacity: 0.55;
+      transform: scale(0.85);
+    }
+    70% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+  }
+
+  @keyframes progressFill {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  /* ContactModal processing state ──────────────────────────────────── */
+  @keyframes processingSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes processingFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+    }
+  }
+
+  @keyframes processingStepIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes processingDotPulse {
+    0%, 100% {
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+  }
+
+  /* Enhanced dropdown styling with smooth animations */
+  select.input-field:focus {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  select.input-field option {
+    @apply transition-all duration-150 ease-out;
+    animation: dropdown-slide 0.2s ease-out;
+  }
+}
